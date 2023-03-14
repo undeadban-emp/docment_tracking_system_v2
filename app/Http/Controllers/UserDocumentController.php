@@ -96,6 +96,7 @@ class UserDocumentController extends Controller
             $result = [];
             $count = count($logDatetime);
             $totalSec = 0;
+            $keynodisapproved = '';
             foreach($logDatetime as $key => $log){
                 if($key == 0){
                     $previous_date = $log->updated_at;
@@ -103,10 +104,16 @@ class UserDocumentController extends Controller
                         array_push($resultAll, '');
                     }
                 }else{
-                    $dateConverted = Carbon::parse($log->updated_at);
-                    $dateConverted2 = Carbon::parse($previous_date);
-                    $diffSeconds = ($dateConverted)->diffInSeconds($dateConverted2);
-                    array_push($result, $diffSeconds);
+                    if($log->status == 'returned'){
+                        $keynodisapproved = $key + 1;
+                    }else if($keynodisapproved == $key){
+                        $keynodisapproved = '';
+                    }else{
+                        $dateConverted = Carbon::parse($log->updated_at);
+                        $dateConverted2 = Carbon::parse($previous_date);
+                        $diffSeconds = ($dateConverted)->diffInSeconds($dateConverted2);
+                        array_push($result, $diffSeconds);
+                    }
                     if($count == $key + 1){
                         foreach($result as $results){
                             $totalSec = $totalSec + $results;
@@ -119,7 +126,6 @@ class UserDocumentController extends Controller
                 //     $asd = $result;
                 // }
             }
-
         }
         $serviceName = $service->name;
         $description = $service->description;
@@ -135,7 +141,6 @@ class UserDocumentController extends Controller
         ->where('status', 'last')
         ->where('stage', 'passed')
         ->first();
-// dd($resultAll);
         return view('user.documents.show', compact('service',  'resultAll', 'userID', 'transactionCode', 'description', 'serviceName', 'process', 'logs', 'check', 'logTime'));
     }
 
