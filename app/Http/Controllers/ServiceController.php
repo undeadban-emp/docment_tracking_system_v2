@@ -1008,6 +1008,22 @@ class ServiceController extends Controller
 
 
      public function trackMyDocument(Request $request){
+        $ongoing = DB::table('user_service')->where('user_id', Auth::user()->id)
+        ->select('id', 'tracking_number', 'user_id', 'status', 'stage', 'created_at', 'updated_at')
+        ->where('status', '!=', 'last')
+        ->where('stage', '!=','passed')
+        ->get()
+        ->groupBy('tracking_number')->count();
+        $returned = UserService::with(['information', 'information.process', 'information.requirements'])
+        ->where('returned_to', Auth::user()->id)
+        ->where('stage', 'current')
+        ->get()->count();
+        $completed = DB::table('user_service')->where('user_id', Auth::user()->id)
+        ->select('id', 'tracking_number', 'user_id', 'status', 'stage', 'created_at', 'updated_at')
+        ->where('status', 'last')
+        ->where('stage', 'passed')
+        ->get()
+        ->groupBy('tracking_number')->count();
 
          if ($request->has('tracking_id')) {
                 $trackingID = $request->tracking_id;
@@ -1031,6 +1047,6 @@ class ServiceController extends Controller
 
             return view('user.documents.track-my-document')->with(['service' => $service, 'logs' => $logs]);
         }
-        return view('user.documents.track-my-document');
+        return view('user.documents.track-my-document', compact('completed', 'ongoing', 'returned'));
      }
 }

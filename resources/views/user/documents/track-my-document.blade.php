@@ -8,6 +8,27 @@
 @endprepend
 @include('templates.success')
 <div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <h3 class="text-center">ONGOING</h3>
+                    <h2 class="text-center">{{ $ongoing }}</h2>
+                </div>
+                 <div class="col-md-4">
+                    <h3 class="text-center">RETURNED</h3>
+                    <h2 class="text-center">{{ $returned }}</h2>
+                 </div>
+                 <div class="col-md-4">
+                    <h3 class="text-center">COMPLETED</h3>
+                    <h2 class="text-center">{{ $completed }}</h2>
+                 </div>
+            </div>
+            <!--end row -->
+       </div>
+    </div>
+</div>
+<div class="card">
      <div class="card-body">
 
         <div class="container pb-5">
