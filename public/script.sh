@@ -1,0 +1,1 @@
+/usr/bin/php /home/u155634670/dep-ed-tandag-dts.online/dts/artisan queue:listen >> /dev/null 2>&1
