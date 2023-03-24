@@ -41,7 +41,7 @@
                             <a href="{{ route('admin.service.show', $service->id) }}" class="btn btn-secondary btn-sm">Show</a>
                             <a href="{{ route('admin.service.edit', $service->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <a href="{{ route('admin.service-requirements.index',['service_id' => $service->id]) }}" class="btn btn-info btn-sm">Manage Requirements</a>
-                            <a href="{{ route('admin.service-process.index', ['id' => $service->id]) }}" class="btn btn-success btn-sm">Manage Proccess</a>
+                            <a href="{{ route('admin.service-process.index', ['id' => $service->id]) }}" class="btn btn-success btn-sm">Manage Process</a>
                             <a class="text-white btn btn-danger btn-sm" data-id="{{ $service->id }}" data-textval="#" onclick="remove(this)">Remove</a>
                         </td>
                     </tr>
@@ -68,9 +68,9 @@
         }).then((willDelete) => {
             if(willDelete){
                 $.ajax({
-                   url: `/admin/service/delete/${id}`, 
-                   type: "DELETE", 
-                   cache: false, 
+                   url: `/admin/service/delete/${id}`,
+                   type: "DELETE",
+                   cache: false,
                    data: {
                         _token: '{{ csrf_token() }}'
                    }
