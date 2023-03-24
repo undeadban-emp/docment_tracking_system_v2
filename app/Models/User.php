@@ -31,6 +31,7 @@ class User extends Authenticatable
         'phone_number',
         'position',
         'status',
+        'profile_picture',
         'office',
         'role',
         'profile_picture'

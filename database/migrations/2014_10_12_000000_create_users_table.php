@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('position');
             $table->string('office');
+            $table->string('profile_picture')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('role', ['liaison', 'checker']);
             $table->rememberToken();
