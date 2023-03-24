@@ -40,7 +40,7 @@
         $("#outgoing-docs").DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('/service/document/outgoing/datas') }}",
+            ajax: "{{ route('service.outgoing.datas') }}",
             columns: [
                 {
                     className: "text-dark",

@@ -43,7 +43,7 @@
         $("#incoming-docs").DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('/service/document/incoming/datas') }}",
+            ajax: "{{ route('service.incoming.datas') }}",
             columns: [
                 {
                     className: "text-dark",

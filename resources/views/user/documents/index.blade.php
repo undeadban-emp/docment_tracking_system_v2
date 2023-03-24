@@ -27,7 +27,7 @@
                 processing: true,
                 serverSide: true,
                 "order": [[ 0, "desc" ]],
-                ajax: "{{ url('/user/documents/list') }}",
+                ajax: "{{ route('user.documents.listMyDocs') }}",
                 columns: [
                     {
                         data: 'tracking_number',

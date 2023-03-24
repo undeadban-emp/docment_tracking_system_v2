@@ -24,7 +24,7 @@
         $("#for-release-docs").DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('/for-release') }}",
+            ajax: "{{ route('service.forRelease.datas') }}",
             columns: [
                 {
                     className: "text-dark",

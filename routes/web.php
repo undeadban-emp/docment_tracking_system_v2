@@ -46,15 +46,15 @@ Route::group(['middleware' => ['auth', 'account.approved']], function () {
     Route::post('service/apply/{service}', [ServiceController::class, 'apply'])->name('service.apply');
     Route::post('service/reapply/{trackingNumber}/apply', [ServiceController::class, 'reapply'])->name('service.reapply');
     Route::get('service/document/incoming', [ServiceController::class, 'incoming'])->name('service.incoming');
-    Route::get('service/document/incoming/datas', [ServiceController::class, 'incomingData']);
+    Route::get('service/document/incoming/datas', [ServiceController::class, 'incomingData'])->name('service.incoming.datas');
     Route::get('service/document/incomingList', [ServiceController::class, 'incomingList']);
 
 
     Route::get('service/document/outgoing', [ServiceController::class, 'outgoing'])->name('service.outgoing');
-    Route::get('service/document/outgoing/datas', [ServiceController::class, 'outgoingData']);
+    Route::get('service/document/outgoing/datas', [ServiceController::class, 'outgoingData'])->name('service.outgoing.datas');
 
     Route::get('service/document/for-release', [ServiceController::class, 'forRelease'])->name('service.for-release');
-    Route::get('for-release', [ServiceController::class, 'forReleaseData']);
+    Route::get('for-release', [ServiceController::class, 'forReleaseData'])->name('service.forRelease.datas');
 
     Route::get('service/document/return', [ServiceController::class, 'return'])->name('service.return');
     Route::get('service/document/manage', [ServiceController::class, 'manage'])->name('service.manage');
@@ -83,8 +83,8 @@ Route::group(['middleware' => ['auth', 'account.approved']], function () {
     Route::get('/download/file/{fileName}', [DownloadFileController::class, 'download'])->name('download.file');
 
     Route::get('logs', [UserLogController::class, 'index'])->name('user.logs');
-    Route::get('/logs/list/checker', [UserLogController::class, 'listChecker']);
-    Route::get('/logs/list/liaison', [UserLogController::class, 'listLiaison']);
+    Route::get('/logs/list/checker', [UserLogController::class, 'listChecker'])->name('logs.list.checker');
+    Route::get('/logs/list/liaison', [UserLogController::class, 'listLiaison'])->name('logs.list.liaison');
 });
 
 Route::get('user/account/verification', function (Request $request) {

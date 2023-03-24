@@ -51,7 +51,7 @@
         $('#logs-table-checker').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('/logs/list/checker') }}",
+            ajax: "{{ route('logs.list.checker') }}",
             columns: [
                 {
                     data: 'tracking_number',
@@ -163,7 +163,7 @@
         $('#logs-table-liaison').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('/logs/list/liaison') }}",
+            ajax: "{{ route('logs.list.liaison') }}",
             columns: [
                 {
                     className: "text-dark",
