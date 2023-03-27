@@ -94,7 +94,7 @@ $(document).ready(function(){
                     name: 'action',
                     render : function (_, _, data, row) {
                         return `
-                            <a href="/admin/user/edit/${data.action}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
+                            <a href="{{ url('/admin/user/edit/${data.action}') }}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
                             <button id="delete" user_id="${data.action}" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="right" title="Reset Password"><span class="mdi mdi-lock-reset"></span></button>
                             <button id="reset" user_id="${data.action}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="Delete"><span class="mdi mdi-delete"></span></button>
                         `;
@@ -121,7 +121,7 @@ $(document).ready(function(){
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: `/admin/user/delete/${id}`
+                    url: `{{ url('/admin/user/delete/${id}') }}`
                     , type: "DELETE"
                     , cache: false
                     , success: function(success) {
@@ -152,7 +152,7 @@ $(document).ready(function(){
         .then((willReset) => {
             if (willReset) {
                 $.ajax({
-                    url: `/admin/user/reset/${id}`
+                    url: `{{ url('/admin/user/reset/${id}') }}`
                     , type: "get"
                     , cache: false
                     , success: function(success) {

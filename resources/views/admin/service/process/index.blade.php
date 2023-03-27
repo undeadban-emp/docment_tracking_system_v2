@@ -98,7 +98,7 @@ $.ajaxSetup({
             if (isClicked) {
                 // Check if there's a on process document
                 $.ajax({
-                        url: `/admin/service-process-scan/${serviceID}`,
+                        url: `{{ url('/admin/service-process-scan/${serviceID}') }}`,
                         success: function(data) {
                             if (data.having_on_process != 0) {
                                 swal({

@@ -70,7 +70,7 @@ $(document).ready(function(){
                     name: 'action',
                     render : function (_, _, data, row) {
                         return `
-                            <a href="/admin/position/edit/${data.action}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
+                            <a href="{{ url('/admin/position/edit/${data.action}') }}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
                             <button id="delete" position_id="${data.action}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="Delete"><span class="mdi mdi-delete"></span></button>
                         `;
                     },
@@ -96,7 +96,7 @@ $(document).ready(function(){
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: `/admin/position/delete/${id}`
+                    url: `{{ url('/admin/position/delete/${id}') }}`
                     , type: "DELETE"
                     , cache: false
                     , success: function(success) {

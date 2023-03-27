@@ -77,7 +77,7 @@
                         name: 'action',
                         render : function (_, _, data, row) {
                             return `
-                            <a href='/admin/document/${data[0].tracking_number}/${data[0].service_id}' class=' text-white edit btn btn-success '>Track</a>
+                            <a href='{{ url('/admin/document/${data[0].tracking_number}/${data[0].service_id}') }}' class=' text-white edit btn btn-success '>Track</a>
                             <button class="text-white edit btn btn-danger" value="${data[0].tracking_number}" id="delete">Delete</button>
                             `;
                         },
@@ -90,7 +90,7 @@
                 var officeValue = $('#office').val();
                 var status = $('#status').val();
                 table.ajax
-                    .url(`/admin/list-of-transaction/list/all/${officeValue}/${status}`)
+                    .url(`{{ url('/admin/list-of-transaction/list/all/${officeValue}/${status}') }}`)
                     .load();
             });
 
@@ -113,7 +113,7 @@
                         .then((willDelete) => {
                             if (willDelete) {
                                 $.ajax({
-                                    url: `/admin/document/delete/${id}`
+                                    url: `{{ url('/admin/document/delete/${id}') }}`
                                     , type: "DELETE"
                                     , cache: false
                                     , success: function(success) {

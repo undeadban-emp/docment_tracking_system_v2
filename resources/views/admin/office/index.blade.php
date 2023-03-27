@@ -63,7 +63,7 @@
                     name: 'action',
                     render : function (_, _, data, row) {
                         return `
-                            <a href="/admin/office/edit/${data.action}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
+                            <a href="{{ url('/admin/office/edit/${data.action}') }}"><button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="right" title="Edit"><span class="mdi mdi-pen"></span></button></a>
                             <button id="delete" office_code="${data.action}" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="right" title="Delete"><span class="mdi mdi-delete"></span></button>
                         `;
                     },
@@ -89,7 +89,7 @@
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: `/admin/office/delete/${id}`
+                    url: `{{ url('/admin/office/delete/${id}') }}`
                     , type: "DELETE"
                     , cache: false
                     , success: function(success) {

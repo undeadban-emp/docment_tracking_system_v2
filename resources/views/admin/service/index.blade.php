@@ -68,7 +68,7 @@
         }).then((willDelete) => {
             if(willDelete){
                 $.ajax({
-                   url: `/admin/service/delete/${id}`,
+                   url: `{{ url('/admin/service/delete/${id}') }}`,
                    type: "DELETE",
                    cache: false,
                    data: {
