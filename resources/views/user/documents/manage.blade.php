@@ -24,7 +24,7 @@
                               <td class='text-dark fw-medium font-size-14'>{{ $document->forwarded_by_user->fullname }}</td>
                               <td class='text-dark fw-medium font-size-14'>{{ $document->avail_by->fullname }}</td>
                               <td class='text-center'>
-                                   <a href="{{ url('/received/service/{{ $document->tracking_number }}') }}" class='btn btn-primary'>
+                                   <a href="{{ url('/received/service/'.$document->tracking_number) }}" class='btn btn-primary'>
                                         VIEW
                                    </a>
                               </td>
