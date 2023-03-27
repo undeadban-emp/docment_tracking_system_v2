@@ -82,7 +82,7 @@
                     data: 'action',
                     name: 'action',
                     render : function (_, _, data, row) {
-                        return `<a href='/received/service/${data.tracking_number}' class=' text-white edit btn btn-primary '>View</a>`;
+                        return `<a href='{{ url('/received/service/${data.tracking_number}') }}' class=' text-white edit btn btn-primary '>View</a>`;
                     },
                 },
             ]

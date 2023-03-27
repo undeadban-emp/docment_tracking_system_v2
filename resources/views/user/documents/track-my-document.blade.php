@@ -39,7 +39,7 @@
                  <div class="col-md-6">
                       <h2>Track your document</h1>
                            <div class="track-document">
-                                <form id="" class="newsletter-form" action="/track-my-document" method="GET">
+                                <form id="" class="newsletter-form" action="{{ url('/track-my-document') }}" method="GET">
                                      <input class="form-control" type="text" name="tracking_id" placeholder="Enter your Tracking ID">
                                      <input class="btn btn-primary mt-3 float-end" type="submit" value="Track">
                                 </form>

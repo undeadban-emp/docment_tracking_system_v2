@@ -50,8 +50,8 @@
                         name: 'action',
                         render : function (_, _, data, row) {
                             return `
-                            <a href='/user/document/${data[0].tracking_number}/${data[0].service_id}' class=' text-white edit btn btn-success '>Track</a>
-                            <a href='/print-qr/${data[0].tracking_number}' class=' text-white edit btn btn-primary '>Qr Code</a>
+                            <a href='{{ url('/user/document/${data[0].tracking_number}/${data[0].service_id}') }}' class=' text-white edit btn btn-success '>Track</a>
+                            <a href='{{ url('/print-qr/${data[0].tracking_number}') }}' class=' text-white edit btn btn-primary '>Qr Code</a>
                             <button class="text-white edit btn btn-danger" value="${data[0].tracking_number}" id="delete">Delete</button>
                             `;
                         },
@@ -78,7 +78,7 @@
                         .then((willDelete) => {
                             if (willDelete) {
                                 $.ajax({
-                                    url: `/user/document/delete/${id}`
+                                    url: `{{ url('/user/document/delete/${id}') }}`
                                     , type: "DELETE"
                                     , cache: false
                                     , success: function(success) {

@@ -11,7 +11,7 @@
                 <div class="profile-widgets py-3">
                     <div class="text-center">
                         <div class="">
-                            <img src="{{ !is_null($user->profile_picture) ? '/storage/account/' . $user->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="" class="avatar-lg mx-auto img-thumbnail rounded-circle">
+                            <img src="{{ !is_null($user->profile_picture) ? '{{ url('/storage/account/') }}' . $user->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="" class="avatar-lg mx-auto img-thumbnail rounded-circle">
                         </div>
                         <div class="mt-3 ">
                             <button type="button" class="btn btn-primary waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target="#modalEditPicture">Edit profile picture</button>

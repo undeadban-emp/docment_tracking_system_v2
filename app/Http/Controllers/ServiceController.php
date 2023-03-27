@@ -1059,7 +1059,7 @@ class ServiceController extends Controller
                     $logs = [];
                 }
 
-            return view('user.documents.track-my-document')->with(['service' => $service, 'logs' => $logs]);
+            return view('user.documents.track-my-document', compact('completed', 'ongoing', 'returned'))->with(['service' => $service, 'logs' => $logs]);
         }
         return view('user.documents.track-my-document', compact('completed', 'ongoing', 'returned'));
      }

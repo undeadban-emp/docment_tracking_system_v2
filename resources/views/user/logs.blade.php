@@ -194,7 +194,7 @@
                     data: 'action',
                     name: 'action',
                     render : function (_, _, data, row) {
-                        return `<a href='/user/document/${data[0].tracking_number}/${data[0].service_id}' class=' text-white edit btn btn-success '>View Road Map</a>`;
+                        return `<a href='{{ url('/user/document/${data[0].tracking_number}/${data[0].service_id}') }}' class=' text-white edit btn btn-success '>View Road Map</a>`;
                     },
                 },
             ]
