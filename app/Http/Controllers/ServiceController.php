@@ -958,40 +958,54 @@ class ServiceController extends Controller
         $userID = Auth::user()->id;
         //   $manage = UserService::with(['manager_users', 'information', 'information.process', 'information.requirements'])->where('manager_id', $userID)->where('stage', 'current')->get();
             $filter = UserService::with('manager_users')->whereHas('manager_users', function($q) {$q->where('user_id', Auth::user()->id);})->get();
-            foreach($filter as $filters){
-                if($filters->status == 'forwarded' && $filters->stage == 'current'){
+            $count = UserService::with('manager_users')->whereHas('manager_users', function($q) {$q->where('user_id', Auth::user()->id);})->count();
+            if($count != 0){
+                foreach($filter as $filters){
+                    if($filters->status == 'forwarded' && $filters->stage == 'current'){
+                    $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
+                    ->whereHas('manager_users', function($q) use ($userID) {
+                        $q->where('user_id', $userID);
+                    })
+                    ->where('received_by', '!=', null)
+                    ->where('stage', 'current')
+                    ->orWhere('stage', 'pending')
+                    ->where('status', 'forwarded')
+                    ->get();
+                    }else if($filters->status == 'received' && $filters->stage == 'current'){
+                            $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
+                            ->whereHas('manager_users', function($q) use ($userID) {
+                                $q->where('user_id', $userID);
+                            })
+                            ->where('received_by', null)
+                            ->where('stage', 'current')
+                            ->orWhere('stage', 'pending')
+                            ->where('status', 'forwarded')
+                            ->get();
+                    } else {
+                        $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
+                            ->whereHas('manager_users', function($q) use ($userID) {
+                                $q->where('user_id', $userID);
+                            })
+                            ->where('received_by', null)
+                            ->where('stage', 'current')
+                            ->where('status', '!=','disapproved')
+                            ->orWhere('stage', 'pending')
+                            ->where('status', 'forwarded')
+                            ->get();
+                    }
+                }
+            }else{
                 $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
                 ->whereHas('manager_users', function($q) use ($userID) {
                     $q->where('user_id', $userID);
                 })
-                ->where('received_by', '!=', null)
+                ->where('received_by', null)
                 ->where('stage', 'current')
+                ->where('status', '!=','disapproved')
                 ->orWhere('stage', 'pending')
                 ->where('status', 'forwarded')
                 ->get();
-                }else if($filters->status == 'received' && $filters->stage == 'current'){
-                        $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
-                        ->whereHas('manager_users', function($q) use ($userID) {
-                            $q->where('user_id', $userID);
-                        })
-                        ->where('received_by', null)
-                        ->where('stage', 'current')
-                        ->orWhere('stage', 'pending')
-                        ->where('status', 'forwarded')
-                        ->get();
-                } else {
-                    $manage = UserService::with('manager_users','information', 'information.process', 'information.requirements')
-                        ->whereHas('manager_users', function($q) use ($userID) {
-                            $q->where('user_id', $userID);
-                        })
-                        ->where('received_by', null)
-                        ->where('stage', 'current')
-                        // ->where('status', '!=','disapproved')
-                        ->orWhere('stage', 'pending')
-                        ->where('status', 'forwarded')
-                        ->get();
-                }
-        }
+            }
           return view('user.documents.manage', [
                'pageTitle' => 'Manage Documents',
                'user' => $manage,
