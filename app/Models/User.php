@@ -14,6 +14,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    public $connection = 'doc_tracking';
+    public $table = 'users';
 
     /**
      * The attributes that are mass assignable.

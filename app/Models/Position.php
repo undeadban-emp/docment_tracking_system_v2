@@ -11,5 +11,7 @@ class Position extends Model
     use HasFactory, SoftDeletes;
 
     protected $primaryKey = 'code';
+    public $connection = 'doc_tracking';
+    public $table = 'positions';
     protected $fillable = ['code', 'position_name', 'position_short_name'];
 }

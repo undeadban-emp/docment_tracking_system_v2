@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ManagerUser extends Model
 {
     use HasFactory;
+    public $connection = 'doc_tracking';
+    public $table = 'manager_users';
     protected $fillable = ['manager_id', 'user_id'];
     public function users()
     {

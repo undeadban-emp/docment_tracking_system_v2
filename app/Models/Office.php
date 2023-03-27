@@ -11,6 +11,8 @@ class Office extends Model
     use HasFactory, SoftDeletes;
 
     protected $primaryKey = "code";
+    public $connection = 'doc_tracking';
+    public $table = 'offices';
     protected $fillable = ['code', 'description', 'head', 'position', 'location', 'shortname'];
 
     public function services()

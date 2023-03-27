@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Service extends Model
 {
     use HasFactory, SoftDeletes;
+    public $connection = 'doc_tracking';
+    public $table = 'services';
     public $with = ['serviceOffice', 'requirements'];
     protected $fillable = [
         'name',

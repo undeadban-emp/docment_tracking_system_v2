@@ -40,6 +40,9 @@
 @prepend('page-scripts')
 <script>
     $(document).ready(function(){
+        window.Laravel = {
+        csrfToken: '{{csrf_token()}}'
+    }
         $("#incoming-docs").DataTable({
             processing: true,
             serverSide: true,

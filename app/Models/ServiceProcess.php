@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceProcess extends Model
 {
     use HasFactory;
+    public $connection = 'doc_tracking';
+    public $table = 'service_processes';
 
     protected $fillable = ['code', 'responsible', 'action', 'location' ,'description', 'index', 'fees_to_paid', 'responsible_user', 'manager_id'];
 

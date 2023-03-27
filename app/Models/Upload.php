@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Upload extends Model
 {
     use HasFactory;
+    public $connection = 'doc_tracking';
+    public $table = 'uploads';
     protected $fillable = ['transaction_code', 'file'];
 }

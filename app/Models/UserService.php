@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class UserService extends Pivot
 {
     public $table = 'user_service';
+    public $connection = 'doc_tracking';
     protected function status(): Attribute
     {
         return Attribute::make(

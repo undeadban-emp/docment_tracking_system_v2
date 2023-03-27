@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Requirement extends Model
 {
     use HasFactory;
+    public $connection = 'doc_tracking';
     public $fillable = ['description', 'where_to_secure', 'service_id', 'is_required'];
+    public $table = 'requirements';
 
     public function service()
     {
