@@ -59,7 +59,7 @@
 
                                    <div class="dropdown d-inline-block">
                                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                             <img class="rounded-circle header-profile-user" src="{{ !is_null(Auth::user()->profile_picture) ? '/storage/account/' . Auth::user()->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="Header Avatar">
+                                             <img class="rounded-circle header-profile-user" src="{{ !is_null(Auth::user()->profile_picture) ? '/document-tracking/storage/account/' . Auth::user()->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="Header Avatar">
                                              <span class="d-none d-xl-inline-block ms-1">{{ Auth::user()->firstname . ' ' .Auth::user()->lastname }}</span>
                                              <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                                         </button>
@@ -112,7 +112,7 @@
 
                          <div class="user-wid text-center py-4">
                               <div class="user-img">
-                                   <img src="{{ !is_null(Auth::user()->profile_picture) ? '/storage/account/' . Auth::user()->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="" class="avatar-md mx-auto rounded-circle">
+                                   <img src="{{ !is_null(Auth::user()->profile_picture) ? '/document-tracking/storage/account/' . Auth::user()->profile_picture : 'https://res.cloudinary.com/dfm6cr1l9/image/upload/v1653217730/pngkey.com-avatar-png-1149878_lvpbsn.png' }}" alt="" class="avatar-md mx-auto rounded-circle">
                               </div>
 
                               <div class="mt-3">
