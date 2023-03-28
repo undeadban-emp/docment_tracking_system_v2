@@ -1011,10 +1011,10 @@ body[data-layout="detached"] .page-title-box {
 
 /*!
  * Waves v0.7.6
- * http://fian.my.id/Waves 
- * 
- * Copyright 2014-2018 Alfiana E. Sibuea and other contributors 
- * Released under the MIT license 
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014-2018 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
  * https://github.com/fians/Waves/blob/master/LICENSE */
 .waves-effect {
   position: relative;
@@ -2412,7 +2412,7 @@ input[switch="dark"]:checked + label {
   .wizard > .steps > ul > li {
     width: 100%; } }
 
-/* 
+/*
 Datatable
 */
 div.dataTables_wrapper div.dataTables_filter {
@@ -2679,7 +2679,7 @@ div.dataTables_wrapper div.dataTables_filter {
   left: 25px; }
 
 .bg-login {
-  background-image: url(../images/login-img.png);
+  background-image: url('https://surigaodelsur.ph/document-tracking/assets/images/login-img.png');
   padding: 60px 0px;
   background-size: cover;
   background-position: center center;
