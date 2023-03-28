@@ -1,7 +1,8 @@
 
     .timeline {
         list-style: none;
-        background-image: url(http://demos.themelize.me/appstrap3.3.2/theme/assets/img/misc/bg_timeline-line.png);
+        background-image: url('https://surigaodelsur.ph/document-tracking/assets/images/bg_timeline-line.png');
+        /* background-image: url(http://demos.themelize.me/appstrap3.3.2/theme/assets/img/misc/bg_timeline-line.png); */
         background-repeat: repeat-y;
         background-position: center top;
         padding: 0;
