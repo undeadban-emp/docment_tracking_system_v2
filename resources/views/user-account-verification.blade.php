@@ -39,7 +39,7 @@
                                 {{-- <h4 class="error-page mt-5"><span>Account for approval</span></h4> --}}
                                 <h3 class="mb-4 mt-5">Account for approval</h3>
                                 <p class="mb-4 w-75 mx-auto">Please contact system administrator to approve you account</p>
-                                <a class="btn btn-primary mb-4 waves-effect waves-light" href="/">
+                                <a class="btn btn-primary mb-4 waves-effect waves-light" href="{{ url('/') }}">
                                     Back to Main Page
                                     {{-- <i class="mdi mdi-home"></i> Back to Main Page</a> --}}
                                 </a>

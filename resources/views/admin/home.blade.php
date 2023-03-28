@@ -133,7 +133,7 @@ $(document).ready(function(){
         .then((willApprove) => {
             if (willApprove) {
                 $.ajax({
-                    url: `/admin/user/approve/${id}`
+                    url: `{{url('/admin/user/approve/${id}')}}`
                     , type: "patch"
                     , cache: false
                     , success: function(success) {
@@ -164,7 +164,7 @@ $(document).ready(function(){
         .then((willDisapproved) => {
             if (willDisapproved) {
                 $.ajax({
-                    url: `/admin/user/reject/${id}`
+                    url: `{{url('/admin/user/reject/${id}')}}`
                     , type: "patch"
                     , cache: false
                     , success: function(success) {
